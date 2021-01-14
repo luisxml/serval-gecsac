@@ -13,7 +13,7 @@ SET CLASSLIB TO lcAppDir+'Clase\vfps_upload' ADDITIVE
 loVFPsUpload = CREATEOBJECT("vfps_upload")
 IF VARTYPE(loVFPsUpload) = "O"
    *!* INGRESAR LA URL DONDE SE ALOJA NUESTRO ARCHIVO DE WS
-   loVFPsUpload.lcURL = "http://gecsac.com/fe"
+   loVFPsUpload.lcURL = "http://gecsac.com/fe/vfpsupload.php"
    *!* LLAMADO A LA VFPSUPLOAD
    *!* PARAMETROS 
    *!* lcDirFile  = NOMBRE DEL DIRECTORIO EN LA NUBE DONDE SE DESEA SUBIR EL ARCHIVO (sin espacios, tal como esta creado en su servidor)

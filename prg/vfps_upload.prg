@@ -13,34 +13,34 @@ SET CLASSLIB TO lcAppDir+'Clase\vfps_upload' ADDITIVE
 loVFPsUpload = CREATEOBJECT("vfps_upload")
 IF VARTYPE(loVFPsUpload) = "O"
    *!* INGRESAR LA URL DONDE SE ALOJA NUESTRO ARCHIVO DE WS
-   loVFPsUpload.lcURL = "http://gecsac.com/fe/vfpsupload.php"
-   *!* LLAMADO A LA VFPSUPLOAD
-   *!* PARAMETROS 
-   *!* lcDirFile  = NOMBRE DEL DIRECTORIO EN LA NUBE DONDE SE DESEA SUBIR EL ARCHIVO (sin espacios, tal como esta creado en su servidor)
-   *!* lcRutaFile = RUTA Y NOMBRE DEL ARCHIVO A SUBIR 
-   lcDirFile  = "ARCHIVOS"
-   lcRutaFile = ALLTRIM(RUTA)
-   
-   IF !loVFPsUpload.VFPs_Upload_File (lcDirFile,lcRutaFile)
-      *!* HUBO UN ERROR
-      RETURN .F.
-   ENDIF
-   *!* TODO OK SE SUBIO EL ARCHIVO
-   *MESSAGEBOX("El archivo se subio correctamente.",64,"SERVAL")
-   *SET STEP ON
-   lsql = "UPDATE FACT_VENTA SET FG_SUBIDO=1 where ID_FACTURA_VENTA=?Vpn_ID_FACTURA_VENTA"			
-		resp=SQLEXEC(conex, lsql)
-		IF resp<0
-			MESSAGEBOX("Disculpe, error en la consulta, por favor comunicarse con el Soporte Tecnico del Sistema .",0+16,"Error de conexión")
-			RETURN 
-		ENDIF
-		
-	lsql = "UPDATE FACT_VENTA SET FG_SUBIDO=1 where ID_FACTURA_VENTA=?Vpn_id_factura"			
-		resp=SQLEXEC(conex, lsql)
-		IF resp<0
-			MESSAGEBOX("Disculpe, error en la consulta, por favor comunicarse con el Soporte Tecnico del Sistema .",0+16,"Error de conexión")
-			RETURN 
-		ENDIF
+*!*	   loVFPsUpload.lcURL = "http://gecsac.com/fe/vfpsupload.php"
+*!*	   *!* LLAMADO A LA VFPSUPLOAD
+*!*	   *!* PARAMETROS 
+*!*	   *!* lcDirFile  = NOMBRE DEL DIRECTORIO EN LA NUBE DONDE SE DESEA SUBIR EL ARCHIVO (sin espacios, tal como esta creado en su servidor)
+*!*	   *!* lcRutaFile = RUTA Y NOMBRE DEL ARCHIVO A SUBIR 
+*!*	   lcDirFile  = "ARCHIVOS"
+*!*	   lcRutaFile = ALLTRIM(RUTA)
+*!*	   
+*!*	   IF !loVFPsUpload.VFPs_Upload_File (lcDirFile,lcRutaFile)
+*!*	      *!* HUBO UN ERROR
+*!*	      RETURN .F.
+*!*	   ENDIF
+*!*	   *!* TODO OK SE SUBIO EL ARCHIVO
+*!*	   *MESSAGEBOX("El archivo se subio correctamente.",64,"SERVAL")
+*!*	   *SET STEP ON
+*!*	   lsql = "UPDATE FACT_VENTA SET FG_SUBIDO=1 where ID_FACTURA_VENTA=?Vpn_ID_FACTURA_VENTA"			
+*!*			resp=SQLEXEC(conex, lsql)
+*!*			IF resp<0
+*!*				MESSAGEBOX("Disculpe, error en la consulta, por favor comunicarse con el Soporte Tecnico del Sistema .",0+16,"Error de conexión")
+*!*				RETURN 
+*!*			ENDIF
+*!*			
+*!*		lsql = "UPDATE FACT_VENTA SET FG_SUBIDO=1 where ID_FACTURA_VENTA=?Vpn_id_factura"			
+*!*			resp=SQLEXEC(conex, lsql)
+*!*			IF resp<0
+*!*				MESSAGEBOX("Disculpe, error en la consulta, por favor comunicarse con el Soporte Tecnico del Sistema .",0+16,"Error de conexión")
+*!*				RETURN 
+*!*			ENDIF
 ENDIF
 
 *!* NOTA IMPORTANTE

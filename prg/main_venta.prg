@@ -92,7 +92,7 @@ conex=0
 *---------------------
 
 *****VERSION
-Vgc_version='1.0.0.18'
+Vgc_version='1.0.0.19'
 Vgc_vigencia='18/07/2020'
 ***VERSION
 SET STEP ON
